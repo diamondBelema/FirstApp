@@ -25,7 +25,7 @@ class ScrnMngr(ScreenManager):
    
     
     def _key_handler(self, instance, key, *args):
-        if key is 27:
+        if key == 27:
             self.set_previous_screen()
             return True
     def set_previous_screen(self):
