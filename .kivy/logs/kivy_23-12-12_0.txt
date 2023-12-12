@@ -1,0 +1,42 @@
+[INFO   ] Logger: Record log in /storage/emulated/0/Documents/Pydroid3/DadsApp/.kivy/logs/kivy_23-12-12_0.txt
+[DEBUG  ] Config: Upgrading from 0 to 1
+[WARNING] Config: Upgrading configuration in progress.
+[WARNING] Config: Older configuration version detected (0 instead of 27)
+[ERROR  ] Error when copying logo directory
+Traceback (most recent call last):
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.11/site-packages/kivy/__init__.py", line 411, in <module>
+    shutil.copytree(join(kivy_data_dir, 'logo'), icon_dir)
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.11/shutil.py", line 561, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.11/shutil.py", line 515, in _copytree
+    raise Error(errors)
+shutil.Error: [('/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.11/site-packages/kivy/data/logo', '/storage/emulated/0/Documents/Pydroid3/DadsApp/.kivy/icon', '[Errno 13] Permission denied')]
+[INFO   ] Kivy: v2.2.1
+[INFO   ] Kivy: Installed at "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.11/site-packages/kivy/__init__.py"
+[INFO   ] Python: v3.11.4 (main, Sep 30 2023, 10:54:38) [GCC 11.4.0]
+[INFO   ] Python: Interpreter at "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/bin/python3"
+[INFO   ] Logger: Purge log fired. Processing...
+[INFO   ] Logger: Purge finished!
+[INFO   ] KivyMD: 1.1.1, git-Unknown, 2023-11-25 (installed at "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.11/site-packages/kivymd/__init__.py")
+[INFO   ] Factory: 190 symbols loaded
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL ES 2" graphics system
+[INFO   ] GL: Backend used <sdl2>
+[INFO   ] GL: OpenGL version <b'OpenGL ES 3.2 v1.r26p0-01eac0.f143e3f9482527bbad36b3ec27f93e59'>
+[INFO   ] GL: OpenGL vendor <b'ARM'>
+[INFO   ] GL: OpenGL renderer <b'Mali-G52 MC2'>
+[INFO   ] GL: OpenGL parsed version: 3, 2
+[INFO   ] GL: Texture max size <8192>
+[INFO   ] GL: Texture max units <16>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[INFO   ] GL: NPOT texture support is available
+[DEBUG  ] Starting new HTTPS connection (1): hospital-database-2525d-default-rtdb.firebaseio.com:443
+[DEBUG  ] https://hospital-database-2525d-default-rtdb.firebaseio.com:443 "POST /.json HTTP/1.1" 400 77
+[DEBUG  ] Starting new HTTPS connection (1): hospital-database-2525d-default-rtdb.firebaseio.com:443
+[DEBUG  ] https://hospital-database-2525d-default-rtdb.firebaseio.com:443 "GET /.json HTTP/1.1" 200 3482
+[WARNING] Base: Unknown <android> provider
+[INFO   ] Base: Start application main loop

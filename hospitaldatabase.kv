@@ -1,0 +1,536 @@
+
+<MyItem>
+    text: "Two-line item with avatar"
+    secondary_text: "Secondary text here"
+    _no_ripple_effect: True
+
+    ImageLeftWidget:
+        source: "data/logo/kivy-icon-256.png"
+
+
+ScrnMngr:
+    id: screenMngr
+    name: 'screenMngr'
+    Screen:
+        name: 'profile'
+        id: profile
+        
+        MDBottomNavigation:
+           
+            MDBottomNavigationItem:
+                name: 'views'
+                text: 'data'
+                icon: 'database'
+                      
+                MDBoxLayout:
+                    orientation: "vertical"
+                
+                    MDTopAppBar:
+                        id: toolbar
+                        title: app.title
+                        md_bg_color: 1, 1, 1, 1
+                
+                    MDBoxLayout:
+                        adaptive_height: True                        
+                        padding: dp(30)   
+                        size_hint: 1, 0.3  
+                        MDTextField:
+                            id: search_field
+                            hint_text: 'Search icon'
+                            on_text: root.search_folder(self.text)
+                            icon_right: 'magnify'
+                        
+                    ScrollView:                
+                        MDSelectionList:
+                            id: selection_list
+                            spacing: "12dp"
+                            overlay_color: app.overlay_color[:-1] + [.2]
+                            icon_bg_color: app.overlay_color
+                            on_selected: app.on_selected(*args)
+                            on_unselected: app.on_unselected(*args)
+                            on_selected_mode: app.set_selection_mode(*args)
+                
+                MDFloatingActionButton:
+                    icon: 'plus-thick'
+                    pos_hint: {'center_x':0.8,'center_y':0.15}  
+                    on_press: screenMngr.current = 'add'
+                        
+            MDBottomNavigationItem:
+                name: 'chat'
+                text: 'chat'
+                icon: 'chat'
+                MDLabel:
+                    text:'chat'
+    Screen:
+        name: 'add'
+        id: add
+        BoxLayout:
+            orientation: 'vertical'
+            MDIconButton:
+                icon: 'keyboard-backspace' 
+                on_press: screenMngr.current = 'profile'
+                pos_hint: {'center_x': 0.1 , 'center_y': 0.95}   
+                    
+            ScrollView:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.8}                 
+                MDBoxLayout:                    
+                    orientation: 'vertical'
+                    default_size: 1, dp(30)                           
+                    elevation: "8dp"                            
+                    default_size_hint: 1, None 
+                    spacing: '20dp'
+                    padding: 50,50
+                    size_hint_y: None                        
+                    height: self.minimum_height                        
+                    orientation: 'vertical'
+                    
+                    MDLabel:
+                        text: ''
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                           
+                    MDLabel:
+                        text: 'Basic Details'
+                        font_style: 'H4'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,0,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: 'Name'
+                        font_style: 'H5'     
+                        pos_hint: {'center_x':0.5,'center_y':0.4}  
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: name
+                        name: 'name'
+                        hint_text: 'name'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp' 
+                        normal_color: app.textColor         
+                       
+                    MDLabel:
+                        text: 'Age'
+                        font_style: 'H5'      
+                        pos_hint: {'center_x':0.5,'center_y':0.4} 
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: age
+                        hint_text: 'age'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'Sex'
+                        font_style: 'H5' 
+                        pos_hint: {'center_x':0.5,'center_y':0.4}      
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: sex
+                        hint_text: 'sex'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'Occupation'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: occupation
+                        hint_text: 'occupation'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'Marital Status'
+                        font_style: 'H5'    
+                        pos_hint: {'center_x':0.5,'center_y':0.4}   
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: maritalStatus
+                        hint_text: 'marital status'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'Address'
+                        font_style: 'H5'   
+                        pos_hint: {'center_x':0.5,'center_y':0.4}    
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: address
+                        hint_text: 'address'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'Tribe'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: tribe
+                        hint_text: 'tribe'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+        MDFloatingActionButton:
+            icon: 'page-next' 
+            on_press: screenMngr.current = 'add2'
+            pos_hint: {'center_x': 0.8 , 'center_y': 0.1}   
+    Screen:
+        name: 'add2'
+        id: add2
+        BoxLayout:
+            orientation: 'vertical'
+            MDIconButton:
+                icon: 'keyboard-backspace' 
+                on_press: screenMngr.current = 'add'
+                pos_hint: {'center_x': 0.1 , 'center_y': 0.95}   
+                    
+            ScrollView:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.8}                 
+                MDBoxLayout:                    
+                    orientation: 'vertical'
+                    default_size: 1, dp(30)                           
+                    elevation: "8dp"                            
+                    default_size_hint: 1, None 
+                    spacing: '20dp'
+                    padding: 50,50
+                    size_hint_y: None                        
+                    height: self.minimum_height                        
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: ''
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                        spacing: '20dp'
+                           
+                    MDLabel:
+                        text: 'Body Parameters'
+                        font_style: 'H4'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,0,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: 'Height'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: height
+                        hint_text: 'height'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'Weight'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: weight
+                        hint_text: 'weight'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'BMI'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: BMI
+                        hint_text: 'BMI'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    MDLabel:
+                        text: 'BP'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:
+                        id: BP
+                        hint_text: 'bloodPressure'
+                        font_style: 'H6'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                    
+        MDFloatingActionButton:
+            icon: 'page-next' 
+            on_press: screenMngr.current = 'add3'
+            pos_hint: {'center_x': 0.8 , 'center_y': 0.1}   
+
+    Screen:
+        name: 'add3'
+        id: add3
+        BoxLayout:
+            orientation: 'vertical'
+            MDIconButton:
+                icon: 'keyboard-backspace' 
+                on_press: screenMngr.current = 'add2'
+                pos_hint: {'center_x': 0.1 , 'center_y': 0.95}   
+                    
+            ScrollView:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.8}                 
+                MDBoxLayout:                    
+                    orientation: 'vertical'
+                    default_size: 1, dp(30)                           
+                    elevation: "8dp"                            
+                    default_size_hint: 1, None 
+                    spacing: '20dp'
+                    padding: 50,50
+                    size_hint_y: None                        
+                    height: self.minimum_height                        
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: ''
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                           
+                    MDLabel:
+                        text: 'Female Details'
+                        font_style: 'H4'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,0,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'  
+                    MDLabel:
+                        text: 'LMP'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                  
+                    MDTextField:
+                        id: LMP
+                        hint_text: 'LMP'
+                        on_touch_down: root.show_datePicker1(LMP)
+                        font_style: 'H6'
+                        readonly: True
+                        icon_right: 'calendar-edit'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'
+                        
+                    MDLabel:
+                        text: 'EDD'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                    MDTextField:                        
+                        id: EDD
+                        hint_text: 'EDD'
+                        font_style: 'H6'
+                        readonly: True
+                        on_touch_down: root.show_datePicker(EDD)
+                        icon_right: 'calendar-edit'
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp'                    
+                        height: '250dp'
+        MDFloatingActionButton:
+            icon: 'page-next' 
+            on_press: screenMngr.current = 'add4'
+            pos_hint: {'center_x': 0.8 , 'center_y': 0.1}   
+    Screen:
+        name: 'add4'
+        id: add3
+        BoxLayout:
+            orientation: 'vertical'
+            MDIconButton:
+                icon: 'keyboard-backspace' 
+                on_press: screenMngr.current = 'add3'
+                pos_hint: {'center_x': 0.1 , 'center_y': 0.95}   
+                    
+            ScrollView:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.8}                 
+                MDBoxLayout:                    
+                    orientation: 'vertical'
+                    default_size: 1, dp(30)                           
+                    elevation: "8dp"                            
+                    default_size_hint: 1, None 
+                    spacing: '20dp'
+                    padding: 50,50
+                    size_hint_y: None                        
+                    height: self.minimum_height                        
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: ''
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                           
+                    MDLabel:
+                        text: 'Doctors Remark'
+                        font_style: 'H4'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,0,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'  
+                    MDLabel:
+                        text: 'Gynae History'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                        size_hint_x: None
+                        width: '250dp'
+                    TextInput:
+                        id: gynaeHistory
+                        hint_text: 'gynaeHistory'
+                        font_style: 'H6'
+                        multiline: True
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp' 
+                        size_hint_y: None
+                        height: '250dp' 
+                    MDLabel:
+                        text: 'Medical History'
+                        font_style: 'H5'  
+                        pos_hint: {'center_x':0.5,'center_y':0.4}     
+                        theme_text_color: 'Custom'
+                        text_color: app.textColor
+                        size_hint_x: None
+                        width: '250dp'
+                    TextInput:
+                        id: medicalHistory
+                        hint_text: 'medicalHistory'
+                        font_style: 'H6'
+                        multiline: True
+                        size_hint_x: None
+                        pos_hint: {'center_x':0.5,'center_y':0.4}
+                        width: '250dp' 
+                        size_hint_y: None
+                        height: '250dp'                                
+        MDFloatingActionButton:
+            icon: 'cloud-upload' 
+            on_press: root.upload()
+            pos_hint: {'center_x': 0.8 , 'center_y': 0.1}    
+            
+    Screen:
+        name: 'edit'
+        id: edit
+        BoxLayout:
+            orientation: 'vertical'
+            MDTopAppBar:
+                title: "Edit Profile"
+                left_action_items: [['keyboard-backspace', lambda x: root.back_to_home()]]
+                elevation: 3
+                                                  
+            ScrollView:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.8}                 
+                MDBoxLayout:                    
+                    orientation: 'vertical'
+                    default_size: 1, dp(30)                           
+                    elevation: "8dp"                            
+                    default_size_hint: 1, None 
+                    spacing: '20dp'
+                    padding: 50,50
+                    size_hint_y: None                        
+                    height: self.minimum_height                        
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: ''
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                           
+                    MDLabel:
+                        text: root.present_folder
+                        font_style: 'H4'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,0,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'
+                    MDLabel:
+                        text: ' '
+                        font_style: 'H1'       
+                        theme_text_color: 'Custom'
+                        text_color: 1,0,1,1
+                        spacing: '20dp'                                       
+
